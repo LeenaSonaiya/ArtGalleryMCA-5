@@ -1,0 +1,41 @@
+{% extends 'master.html'%}
+{% block 'body'%}
+<body  style="background-color: #d2c9ff;" ></body>
+<br><br>
+<div class="products-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="products">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="filters">
+            <ul>
+                <a href="{% url 'paintingname' 'none' %}"><li data-filter="*">All Painting</li></a>
+                <a href="{% url 'paintingname' 'oil' %}"><li data-filter=".des">Oil Painting</li></a>
+                <a href="{% url 'paintingname' 'water' %}"> <li data-filter=".dev">Watercolor Painting</li></a>
+                <a href="{% url 'paintingname' 'spay' %}"><li data-filter=".gra">Spay Painting</li></a>
+            </ul>
+          </div>
+        </div>
+        {% for i in paint %}
+        <div class="col-md-4">
+          <div class="product-item">
+            <a href="{% url 'imagedetail' i.id %}"><img src={{i.image.url}} alt="" height="300" width="4  00"></a>
+            <div class="down-content">
+              <h2>{{i.title}}</h2>
+              <h4>RS.{{i.price}}</h4>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock 'body'%}

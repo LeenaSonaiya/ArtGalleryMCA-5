@@ -1,0 +1,33 @@
+{% extends 'master.html' %}
+{%block 'body'%}
+
+<html>
+<body  style="background-color: #d2c9ff;" >
+<br><br><br><br><br><br>
+<h1 align="center"><u><b>Register</b></u></h1>
+<br><br>
+<form action="" method="POST" align="center" name="form1">
+    <table  align="center">
+        {% csrf_token %}
+        <tr>
+            <td>User Name:<br><br></td>
+            <td><input type="text" name='username'autocomplete="off"  required /><br><br></td>
+        </tr>
+        <tr>
+            <td>E-mail :<br><br></td>
+            <td><input type="email" name='email' autocomplete="off"  required  /><br><br></td>
+        </tr>
+        <tr>
+            <td>Password:<br><br></td>
+            <td><input type="password" name='pass' autocomplete="off"  required /><br><br></td>
+        </tr>
+               
+    </table>
+    <input type="submit" value='submit' /><br><br>
+        <a href="{% url 'login'%}">Already register?</a>
+    </form>
+</body>
+</html>
+
+{%endblock 'body'%}
+

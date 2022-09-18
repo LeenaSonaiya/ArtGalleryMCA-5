@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+{%block 'body'%}
+<body  style="background-color: #d2c9ff;">
+<br><br><br><br><br><br>
+
+  <h1 align="center"><u><b>Login</b></u></h1>
+
+  <br><br>
+    <form action="" method="POST" align="center" name="form1">
+      <table  align="center">
+          {% csrf_token %}
+          <tr>
+              <td>User Name: <br><br></td>
+              <td><input type="text" name='username' required autocomplete="off"/><br><br></td>
+          </tr>
+          <tr>
+              <td>Password: <br><br></td>
+              <td><input type="password" name='pass' required  autocomplete="off" /><br><br></td>
+          </tr>
+      </table>  
+            <input type="submit" value='submit'/><br><br>
+      <a href="{% url 'register'%}">New User Register First?</a>
+      
+      {% if messages %}
+          {% for message in messages %}
+          <p {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} style="color: red; " {% else %} style="color: green"; {% endif %}> {{ message }} </p>
+          {% endfor %}
+      {% endif %}
+    </form>
+</body>
+</html>
+{%endblock 'body'%}

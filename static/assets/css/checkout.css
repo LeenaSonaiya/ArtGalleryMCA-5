@@ -1,0 +1,42 @@
+*{
+	margin:0;
+	padding:0;
+}
+.main{
+    display: flex;
+    justify-content:space-evenly;
+    overflow: hidden;
+}
+.items{
+    display:flex;
+	flex-flow:column;
+    border: solid 2px black ;
+    height: 500px;
+    width: 500px;
+    overflow: hidden;
+    border-radius:25px;
+}
+
+.address{
+    height: 500px;
+    width: 500px;
+    border: solid 2px black ;
+    overflow: hidden;
+    border-radius:8px;
+}
+.payment
+{
+    height: 500px;
+    width: 500px;
+    border: solid 2px black ;    
+}
+.pay
+{
+
+	font-size:20px;
+	border:solid 2px black;
+	border-radius:8px;
+    background-color: rgb(64, 139, 243);
+	padding:20px 40px;
+
+}

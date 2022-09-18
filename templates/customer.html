@@ -1,0 +1,49 @@
+{% extends 'master.html' %}
+{%block 'body'%}
+
+<html>
+    <head>
+    </head>
+<body  style="background-color: #d2c9ff;">
+<br><br><br><br><br><br>
+<h1 align="center"><u><b>Add Your Details</b></u></h1>
+<br><br>
+
+<form method="POST" align="center" name="form1" action="{% url 'checkout'%}">
+    <table  align="center" >
+        {% csrf_token %}
+        <tr>
+            <td>Name:<br><br></td>
+            <td>{{form.name}}<br><br></td>
+        </tr>
+        <tr>
+            <td>City:<br><br></td>
+            <td>{{form.city}}<br><br></td>
+        </tr>
+        <tr>
+            <td>Satate:<br><br></td>
+            <td>{{form.state}}<br><br></td>
+        </tr>
+        <tr>
+            <td>PinCode:<br><br></td>
+            <td>{{form.zipcode}}<br><br></td>
+        </tr>  
+        <tr>
+            <td>Address:<br><br></td>
+            <td> {{form.address}}<br><br></td>
+        </tr>            
+    </table>
+<input type="submit" value='Proceed to Checkout' ></a><br><br>
+  Already Added ?<a href="{% url 'checkout'%}">  click here</a>
+    {%if messages%}
+        {% for message in messages %}
+        <p {% if message %} style="color: Green;" {%endif %}>{{message}}</p>
+        {% endfor %}
+    {% endif%}
+   
+</form>
+</body>
+</html>
+
+{%endblock 'body'%}
+

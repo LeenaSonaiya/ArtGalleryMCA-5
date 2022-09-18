@@ -1,0 +1,36 @@
+{% extends 'master.html' %}
+{%block 'body'%}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/assets/css/detail.css"/>
+    </head>
+	<body  style="background-color: #d2c9ff;">
+		<br><br><br><br><br><br>
+		<center><h1><u><b>Painting Detail Page</b></u></h1></center>
+		<br>
+    <div class="main">
+        <div class="image">
+			<img src={{img.image.url}} />
+		</div>
+		<div class="desc">
+			<h1>{{img.title}}</h1>
+			<br>
+			<h3>RS.{{img.price}}</h3>
+			<br>
+			<h4>{{img.desc}}</h4>
+			<br>
+			{% if already_cart is True %}
+					<a href="{% url 'AddToCart' 0 %}" class="cart">View cart</a>
+			{%else%}
+			<div  class="button">
+			<form action="{% url 'AddToCart' img.id %}" method="POST" >
+				{% csrf_token %}	
+					<input type="submit" value="Add to cart" class="cart"  />
+				{% endif%}
+					</form>
+			</div>
+		</div>
+    </div>
+	</body>
+</html>	
+{%endblock 'body'%}

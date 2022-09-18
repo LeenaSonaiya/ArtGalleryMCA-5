@@ -1,0 +1,77 @@
+
+{% extends 'master.html' %}
+{% block 'body'%}
+
+<body  style="background-color: #d2c9ff;" >
+  <!-- Banner Starts Here -->
+  <div class="banner header-text">
+    <div class="owl-banner owl-carousel">
+      <div class="banner-item-01">
+        <div class="text-content">
+        </div>
+      </div>
+      <div class="banner-item-02">
+        <div class="text-content">
+        </div>
+      </div>
+      <div class="banner-item-03">
+        <div class="text-content">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Banner Ends Here -->
+  <div class="latest-products">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Painting</h2>
+            <a href="{% url 'paintingname' 'none'%}">view all products <i class="fa fa-angle-right"></i></a>
+          </div>
+        </div>
+        {% for i in all %}
+        <div class="col-md-4">
+          <div class="product-item">
+            <a href="{% url 'imagedetail' i.id %}"><img src={{i.image.url}} alt="" height="300" ></a>
+            <div class="down-content">
+              <h2>{{i.title}}</h2>
+              <h4>RS. {{i.price}}</h4>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!-- about -->
+  <div class="best-features">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>About us </h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="left-content">
+            <br><br>
+            <h5>Lajvanti Sonaiya </h5>
+            <h4>email:lssonaiya2000@gmail.com</h4><br>
+            <h5>Kajal Serlarka </h5>
+            <h4>email:kajal123@gmail.com</h4><br>
+            <h5>Upashana Joshi</h5>
+            <h4>email:upashna1718@gmail.com</h4>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="right-image">
+            <img src="/static/assets/images/feature-image.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+  <!-- end about -->
+  {% endblock 'body'%}

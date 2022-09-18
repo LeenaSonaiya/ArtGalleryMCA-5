@@ -1,0 +1,35 @@
+{% extends 'master.html' %}
+{%block 'body'%}
+<body  style="background-color: #d2c9ff;">
+<br><br><br><br><br><br>
+
+  <h1 align="center"><u><b>My Orders</b></u></h1><br>
+  <body  style="background-color: #d2c9ff;">
+      <center>
+      <table border="true"cellpadding="8">
+        <tr>
+                <th>No.</th>
+                <th>Image</th>
+                <th>Quntity</th>
+                <th>Price</th>
+                <th>orderdate</th>
+                <th>order status</th>
+        </tr>
+        <br>
+        {% for i in order %}
+        <tr>
+                <td padding: 15px;>{{i.id}}</td>
+                <td><img src="{{i.pictures.image.url}}" height="80" width="80"></td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.pictures.price}}</td>
+                <td>{{i.order_date}}</td>
+                <td>{{i.status}}</td>
+        </tr>
+         
+          {% endfor%}
+        </table>
+      </center>
+      <br><br>
+</body>
+  </html>
+{%endblock 'body'%}

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/assets/css/checkout.css"/>
+    </head>
+
+<body  style="background-color: #d2c9ff;">
+    <br>
+    <form action="{% url 'orderdone'%}">
+      <a href="{% url 'customerdetail' %} ">Back</a>&nbsp; &nbsp; &nbsp; 
+      <a href="{% url 'index' %} ">Home page</a>
+      <h1 align="center"><u><b>Your Order Details</b></u></h1>
+      <br>
+      <div class="main">
+        
+            <div class="items">
+                    {% for data in cart %}
+                    <h1>Title :{{data.picture.title}} </h1>
+                    <h3>Quntity:{{data.quantity}} </h3>
+                    <h3>Price: {{data.picture.price}} * {{data.quantity}} </h3>
+                    <h3>Total Price :{{data.total_cost}} </h3><br><br>
+                    {% endfor %}
+                    <hr>
+                    <h2>Total Amount +Delivery Charge(70 Rs) :  {{total}} </h2>
+            </div> 
+            <div class="address">
+            {% for i in address %}
+            <h2>Name :{{i.name}}</h2>
+            <h3>City :{{i.city}}</h3>
+            <h3>State :{{i.state}}</h3>
+            <h3>Address :{{i.address}}</h3>
+            <br>
+            &nbsp;<input type="radio" name="custid" id= "{{forloop.counter}}" value="{{i.id }}" required>Address: {{forloop.counter}}
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="{% url 'deleteAdd' i.id %} ">delete</a>
+            <hr>
+            {% endfor %}
+            </div>
+      </div>
+      <br>
+      <center>
+        <h3>Payment Method</h3><br>
+        <input type="radio" name="type" required>Cash On Delivery<br><br>
+        <input type="Submit" class="pay" value="Place Order">
+      </form>
+      </center>
+</body>
+</html> 
